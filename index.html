@@ -4,25 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="js/ajax.js"> </script>
+    <!-- <script src="js/ajax.js"> </script> -->
     <link rel="stylesheet"href="css/style.css">
     <title>ajax</title>
+    <style>
+        input 
+        {
+            width:40px;
+            padding:5px;
+        }
+        .btn-group
+        {
+            margin-left:18%;
+        }
+    </style>
 </head>
-<body>
     <body>
         <table id="table">
+            <thead>
             <tr>
                 <th>name</th>
                 <th>email</th>
                 <th>message</th>
-                <th>date</th>
+                <th>id</th>
             </tr>
+            </thead>
             <tbody id="mytable">
     
-            </tbody>
+            </tbody>  
         </table>
         <p id="tablelen"></p>
-        <script type="text/javascript"src="js/ajax.js"> </script>
-    </body>
+        <script type="text/javascript"src="js/ajax.js"></script>
+        <div class="btn-group">
+        <input type="button"value="1"id="firstdata"onclick="fdata(10)">
+        <input type="button"value="2"id="seconddata"onclick="fdata(15)">
+        <input type="button"value="3"id="thirddata"onclick="fdata(20)">  
+    </div>
 </body>
 </html>

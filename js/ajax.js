@@ -1,22 +1,30 @@
 
-var person = [
-    {"name":"rahul","email":"rahul@gmail.com","message":"xysd","date":"06/05/2016"},
-    {"name":"rohit","email":"rohit@rgmail.com","message":"xysd","date":"08/06/2017"},
-    {"name":"deepak","email":"deepak@gmail.com","message":"xysd","date":"04/05/2015"},
-    {"name":"ashish","email":"ashish@gmail.com","message":"xysd","date":"02/05/2014"},  
-    {"name":"arnav","email":"arnav@gmail.com","message":"xysd","date":"06/05/2014"},  
-]
+var person = fetch('https://jsonplaceholder.typicode.com')
+//main link https://jsonplaceholder.typicode.com/comments
+.then(response => response.json())
+.then(json => table(json))
 function table(person){
-var table = document.getElementById("mytable")
-for(var i=0; i < person.length; i++)
+var table = document.getElementById("mytable");
+//replace function
+//document.getElementById('').remove();
+//var slideIndex=0;
+for(var i=0; i < 5; i++)
 {
     var row =`<tr>
-    <td> ${person[i].name}</td>
-    <td> ${person[i].email}</td>
-    <td> ${person[i].message}</td>
-    <td> ${person[i].date}</td>
+    <td>${person[i].name}</td>
+    <td>${person[i].email}</td>
+    <td>${person[i].body}</td>
+    <td>${person[i].id}</td>
     </tr>`
-    table.innerHTML+=row;
+    table.innerHTML+=row; 
 }
 }
-table(person);
+function fdata(val){
+    
+    var person = fetch(`https://jsonplaceholder.typicode.com/comments?_start=${val}&_limit=5`)
+    .then(response => response.json())
+    .then(json => table(json))
+   // 
+   
+}
+fdata(10);
