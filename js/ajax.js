@@ -5,9 +5,12 @@ var person = fetch('https://jsonplaceholder.typicode.com')
 .then(json => table(json))
 function table(person){
 var table = document.getElementById("mytable");
-//replace function
-//document.getElementById('').remove();
-//var slideIndex=0;
+let x=document.getElementById('table')
+
+x.querySelector("#mytable").remove();
+let tbody=document.createElement('tbody')
+tbody.setAttribute('id','mytable')
+x.appendChild(tbody)
 for(var i=0; i < 5; i++)
 {
     var row =`<tr>
@@ -16,7 +19,7 @@ for(var i=0; i < 5; i++)
     <td>${person[i].body}</td>
     <td>${person[i].id}</td>
     </tr>`
-    table.innerHTML+=row; 
+    tbody.innerHTML+=row; 
 }
 }
 function fdata(val){
